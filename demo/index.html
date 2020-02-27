@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vendor-property demo</title>
+  <script src="../dist/vendor-property.min.js"></script>
+  <style>
+    * {
+      font-size: 14px;
+    }
+    b{
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form1">
+    <p><b>getProperty</b></p>
+    <p>
+      property name: <input id="prop1" type="text" required value="transform" />
+      property owner: <select id="owner1">
+        <option value="1" selected>style(default)</option>
+        <option value="window">window</option>
+        <option value="navigator">navigator</option>
+      </select>
+    </p>
+    <p>
+      <button type="submit">GO</button>
+      <span id="result1"></span>
+    </p>
+  </form>
+  <br>
+  <form id="form2">
+    <p><b>getEventProperty</b> (omit 'on' prefix)</p>
+    <p>
+      property name: <input id="prop2" type="text" required value="animationend" />
+      property owner: <select id="owner2">
+        <option value="1" selected>HTMLElement(default)</option>
+        <option value="window">window</option>
+      </select>
+    </p>
+    <p>
+      <button type="submit">GO</button>
+      <span id="result2"></span>
+    </p>
+  </form>
+  <script>
+    const { getProperty, getEventProperty } = VendorProperty;
+    function getOwner(type) {
+      if (type === '1') return;
+      if (type === 'window') {
+        return window
+      }
+      if (type === 'navigator') {
+        return navigator
+      }
+    }
+    form1.onsubmit = function (e) {
+      e.preventDefault();
+      result1.innerHTML = getProperty(prop1.value, getOwner(owner1.value))
+    }
+    form2.onsubmit = function (e) {
+      e.preventDefault();
+      result2.innerHTML = getProperty(prop2.value, getOwner(owner2.value))
+    }
+  </script>
+</body>
+
+</html>
