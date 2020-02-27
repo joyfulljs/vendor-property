@@ -23,7 +23,9 @@ console.log(getEventProperty('animationend'));
 
 # note
 
-`getEventProperty` return event name that without `on` prefix, can be used directly in `addEventListener`.
+1. `getEventProperty` return event name that without `on` prefix, can be used directly in `addEventListener`.  
+2. It will return what passed in when the property is not in the owner.
+
 # license
 
 MIT
