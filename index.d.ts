@@ -11,7 +11,7 @@ export declare const vendors: string[];
 export declare function getProperty(prop: string, host?: HTMLElement | Window | Navigator): string;
 /**
  * get vendor event property name omitting `on` prefix.
- * @param prop property name. for example: onwebkitanimationend.
+ * @param prop property name. for example: animationend.
  * @param host optional. property owner. default to `document.body`.
  */
 export declare function getEventProperty(prop: string, host?: HTMLElement | Window): string;

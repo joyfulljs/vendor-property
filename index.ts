@@ -27,7 +27,7 @@ export function getProperty(prop: string, host?: HTMLElement | Window | Navigato
 
 /**
  * get vendor event property name omitting `on` prefix.
- * @param prop property name. for example: onwebkitanimationend.
+ * @param prop property name. for example: animationend.
  * @param host optional. property owner. default to `document.body`.
  */
 export function getEventProperty(prop: string, host?: HTMLElement | Window) {
